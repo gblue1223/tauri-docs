@@ -15,9 +15,9 @@ const { title, leadingHeadings, trailingHeadings } = Astro.props
 ---
 
 <Layout title={title}>
-  <div class="w-full">
+  <div class="container">
     <LeadingSidebar headings={leadingHeadings} />
-    <div class="mx-80 py-4 px-8 overflow-y-auto">
+    <div>
       <article>
         <slot />
       </article>
@@ -26,3 +26,10 @@ const { title, leadingHeadings, trailingHeadings } = Astro.props
     <TrailingSidebar headings={trailingHeadings} />
   </div>
 </Layout>
+
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 20rem auto 20rem;
+  }
+</style>

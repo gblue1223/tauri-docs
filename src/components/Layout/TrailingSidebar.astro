@@ -8,10 +8,11 @@ interface Props {
 const { headings } = Astro.props
 ---
 
+<p>Trailing container</p>
 {
   headings && (
-    <aside class="w-48 fixed inset-y-0 right-0 top-16 overflow-y-auto p-4">
-      <p class="uppercase opacity-50 font-bold">On this page</p>
+    <aside>
+      <p>On this page</p>
       <ul>
         {headings.map((heading) => (
           <li>
