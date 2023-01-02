@@ -2,11 +2,10 @@
 import Search from './Search.astro'
 ---
 
-<nav class="sticky top-0 navbar px-10">
-  <ul class="leading">
-    <div class="logo">
-      <a href={Astro.url.origin}>
-        <!-- TODO: Darkmode toggling might be able to be better -->
+<nav>
+  <ul>
+    <li class="logo">
+      <a href="/">
         <img
           src="/meta/tauri_logo_light.svg"
           alt="Tauri logo"
@@ -18,58 +17,76 @@ import Search from './Search.astro'
           class="dark-mode-only"
         />
       </a>
-    </div>
-
-    <li>
-      <a href="/docs/core/1">Docs</a>
     </li>
     <li>
-      <a>
+      <a href="/docs/core/1" class="button-ghost">Docs</a>
+    </li>
+    <li>
+      <button class="button-ghost">
         References
         <i class="bi bi-caret-down-fill"></i>
-      </a>
-    </li>
-    <!-- <ul class="bg-base-200 p-2">
-          <li class="menu-title uppercase">
-            <span>Tauri Core</span>
-          </li>
-          <li><a href="/api/core-config/1">Tauri Configuration</a></li>
-          <li>
-            <a href="./api">
-              Rust API (via Docs.rs)
-              <i class="bi bi-box-arrow-up-right"></i>
-            </a>
-          </li>
-          <li><a href="/api/core-js/1">JavaScript API</a></li>
+      </button>
+      <ul>
+        <li>
+          <a href="/api/core-config/1" class="button-ghost"
+            >Tauri Configuration</a
+          >
+        </li>
+        <li>
+          <a href="./api" class="button-ghost">
+            Rust API (via Docs.rs)
+            <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="/api/core-js/1" class="button-ghost">JavaScript API</a>
+        </li>
 
-          <li><a href="/api/core-cli/1">Tauri CLI</a></li>
-        </ul> -->
+        <li><a href="/api/core-cli/1" class="button-ghost">Tauri CLI</a></li>
+      </ul>
+    </li>
 
     <li>
-      <a href="./about">About</a>
+      <a href="./about" class="button-ghost">About</a>
     </li>
   </ul>
-  <ul class="trailing">
+  <ul>
     <li>
       <li class="spacer"></li>
     </li>
     <li>
-      <a href="https://github.com/tauri-apps/tauri" target="_blank">
+      <a
+        href="https://github.com/tauri-apps/tauri"
+        target="_blank"
+        class="button-ghost"
+      >
         <i class="icon bi bi-github"></i>
       </a>
     </li>
     <li>
-      <a href="https://discord.com/invite/tauri" target="_blank">
+      <a
+        href="https://discord.com/invite/tauri"
+        target="_blank"
+        class="button-ghost"
+      >
         <i class="icon bi bi-discord"></i>
       </a>
     </li>
     <li>
-      <a href="https://twitter.com/TauriApps" target="_blank">
+      <a
+        href="https://twitter.com/TauriApps"
+        target="_blank"
+        class="button-ghost"
+      >
         <i class="icon bi bi-twitter"></i>
       </a>
     </li>
     <li>
-      <a href="https://fosstodon.org/@TauriApps" target="_blank">
+      <a
+        href="https://fosstodon.org/@TauriApps"
+        target="_blank"
+        class="button-ghost"
+      >
         <i class="icon bi bi-mastodon"></i>
       </a>
     </li>
@@ -77,28 +94,45 @@ import Search from './Search.astro'
       <span class="divider"></span>
     </li>
     <li>
-      <a>
-        <!-- <i class="icon bi bi-sun-fill"></i> -->
+      <button class="button-ghost">
         <i class="icon bi bi-moon-stars-fill"></i>
         <i class="bi bi-caret-down-fill"></i>
-        <!-- <i class="icon bi bi-circle-half"></i> -->
-      </a>
+      </button>
+      <ul>
+        <li>
+          <button class="button-ghost">
+            <i class="icon bi bi-circle-half"></i>
+            Auto
+          </button>
+        </li>
+        <li>
+          <button class="button-ghost">
+            <i class="icon bi bi-sun-fill"></i>
+            Light
+          </button>
+        </li>
+        <li>
+          <button class="button-ghost">
+            <i class="icon bi bi-moon-stars-fill"></i>
+            Dark
+          </button>
+        </li>
+      </ul>
     </li>
     <li>
-      <a>
+      <button class="button-ghost">
         <i class="icon bi bi-translate"></i>
         <i class="bi bi-caret-down-fill"></i>
-      </a>
+      </button>
+      <ul>
+        <li><a class="button-ghost">🇺🇸 English</a></li>
+        <li><a class="button-ghost">🇮🇹 Italian</a></li>
+        <li><a class="button-ghost">🇨🇳 Chinese (Simplified)</a></li>
+        <li><a class="button-ghost">🇰🇷 Korean</a></li>
+      </ul>
     </li>
 
-    <!-- <ul class="bg-base-200 p-2">
-          <li><a>🇺🇸 English</a></li>
-          <li><a>🇮🇹 Italian</a></li>
-          <li><a>🇨🇳 Chinese (Simplified)</a></li>
-          <li><a>🇰🇷 Korean</a></li>
-        </ul> -->
-
-    <Search />
+    <!-- <Search /> -->
   </ul>
 </nav>
 
@@ -113,15 +147,6 @@ import Search from './Search.astro'
     justify-content: space-between;
   }
 
-  nav a {
-    color: rgb(var(--base-content) / 0.8);
-  }
-
-  nav a:hover {
-    color: rgb(var(--base-content));
-    text-decoration: none;
-  }
-
   ul {
     display: flex;
     align-items: center;
@@ -131,16 +156,20 @@ import Search from './Search.astro'
   }
 
   li {
-    display: inline;
+    /* display: inline-block; */
+    height: auto;
   }
 
-  li a {
-    padding: 1em;
-    border-radius: var(--radius);
+  /* Dropdown */
+  ul ul {
+    display: none;
+    position: absolute;
+    background-color: rgb(var(--base-200-bg));
+    z-index: 50;
   }
 
-  li a:hover {
-    background-color: rgb(var(--base-content) / 0.1);
+  ul > li:hover > ul {
+    display: inherit;
   }
 
   .logo {

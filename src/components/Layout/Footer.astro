@@ -21,24 +21,40 @@ const year = new Date().getFullYear()
 
       <ul class="social">
         <li>
-          <a href="https://github.com/tauri-apps/tauri" target="_blank">
+          <a
+            href="https://github.com/tauri-apps/tauri"
+            target="_blank"
+            class="button-ghost"
+          >
             <i class="bi bi-github"></i>
           </a>
         </li>
         <li>
-          <a href="https://discord.com/invite/tauri" target="_blank">
+          <a
+            href="https://discord.com/invite/tauri"
+            target="_blank"
+            class="button-ghost"
+          >
             <i class="bi bi-discord"></i>
           </a>
         </li>
 
         <li>
-          <a href="https://twitter.com/TauriApps" target="_blank">
+          <a
+            href="https://twitter.com/TauriApps"
+            target="_blank"
+            class="button-ghost"
+          >
             <i class="bi bi-twitter"></i>
           </a>
         </li>
 
         <li>
-          <a href="https://fosstodon.org/@TauriApps" target="_blank">
+          <a
+            href="https://fosstodon.org/@TauriApps"
+            target="_blank"
+            class="button-ghost"
+          >
             <i class="bi bi-mastodon"></i>
           </a>
         </li>
@@ -79,9 +95,6 @@ const year = new Date().getFullYear()
 </footer>
 
 <style>
-  footer {
-  }
-
   footer,
   footer a {
     color: rgb(var(--base-content) / 0.8);
@@ -93,19 +106,16 @@ const year = new Date().getFullYear()
   }
   .logo {
     height: 2em;
+    padding-bottom: 1em;
   }
   .social {
-    /* TODO: Need to move out 1em to make up for the padding */
+    position: relative;
+    left: -1em;
     display: flex;
   }
 
-  .social a {
-    padding: 1em;
-    border-radius: var(--radius);
-  }
-
-  .social a:hover {
-    background-color: rgb(var(--base-content) / 0.1);
+  .social i {
+    font-size: 1.2em;
   }
   ul {
     list-style-type: none;

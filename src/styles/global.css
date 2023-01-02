@@ -102,7 +102,8 @@ a:hover {
   border-radius: 5px;
 }
 
-button {
+.button-ghost {
+  display: block;
   background-color: transparent;
   padding: 1em;
   border: none;
@@ -110,8 +111,10 @@ button {
   border-radius: var(--radius);
 }
 
-button:hover {
+.button-ghost:hover {
   background-color: rgb(var(--base-content) / 0.1);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* TODO: Add code links */
@@ -122,9 +125,4 @@ button:hover {
 
 [data-theme='light'] .dark-mode-only {
   display: none;
-}
-
-/* Resizes icons in buttons to fit nicely */
-button > * > i {
-  font-size: 1.5em;
 }
