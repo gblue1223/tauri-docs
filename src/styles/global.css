@@ -1,19 +1,127 @@
+@import './normalize.css';
 @import url('bootstrap-icons');
 @import '@fontsource/rubik';
 @import '@fontsource/ibm-plex-mono';
 
-/* TODO: How this is handled doesn't reflect how daisyUI handles it, also doesn't support a future toggle */
+:root {
+  /* -------- */
+  /* Sizes    */
+  /* -------- */
 
-@media (prefers-color-scheme: dark) {
-  .light-mode-only {
-    display: none;
-  }
+  --padding-x: 2rem;
+  --radius: 5px;
+  --border: 1.5px solid rgb(var(--base-content) / 0.2);
 }
 
-@media (prefers-color-scheme: light) {
-  .dark-mode-only {
-    display: none;
-  }
+:root[data-theme='dark'] {
+  /* -------- */
+  /* Colors   */
+  /* -------- */
+
+  /* Base */
+  --base-100-bg: 20 20 20;
+  --base-200-bg: 40 40 40;
+  --base-300-bg: 60 60 60;
+  --base-content: 246 246 246;
+
+  /* Accents */
+  --primary: 36 200 219;
+  --primary-content: 0 0 0; /* TODO */
+  --secondary: 246 246 246;
+  --secondary-content: 0 0 0; /* TODO */
+  --accent: 255 193 49;
+  --accent-content: 0 0 0; /* TODO */
+
+  /* Supporting */
+  --info: 36 200 219;
+  --info-content: 0 0 0; /* TODO */
+  --success: 67 226 102;
+  --success-content: 0 0 0; /* TODO */
+  --caution: 255 193 49;
+  --caution-content: 0 0 0; /* TODO */
+  --danger: 255 83 60;
+  --danger-content: 0 0 0; /* TODO */
+}
+
+* {
+  transition-property: color, background-color;
+  transition-duration: 0.1s;
+}
+
+body {
+  background-color: rgb(var(--base-100-bg));
+  color: rgb(var(--base-content));
+  font-family: 'Rubik', 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+h6 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+a {
+  color: rgb(var(--primary));
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:not(pre) > code {
+  font-family: 'IMB Plex Mono', 'Courier New', Courier, monospace;
+  background-color: rgb(var(--base-content) / 0.1);
+  font-weight: 550;
+  padding: 0.4em 0.5em;
+  border-radius: 5px;
+}
+
+button {
+  background-color: transparent;
+  padding: 1em;
+  border: none;
+  color: rgb(var(--base-content));
+  border-radius: var(--radius);
+}
+
+button:hover {
+  background-color: rgb(var(--base-content) / 0.1);
+}
+
+/* TODO: Add code links */
+
+[data-theme='dark'] .light-mode-only {
+  display: none;
+}
+
+[data-theme='light'] .dark-mode-only {
+  display: none;
 }
 
 /* Resizes icons in buttons to fit nicely */

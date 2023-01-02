@@ -9,5 +9,5 @@ export default defineConfig({
   experimental: {
     contentCollections: true,
   },
-  integrations: [prefetch(), tailwind(), sitemap()],
+  integrations: [prefetch(), sitemap()],
 })
