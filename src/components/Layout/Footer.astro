@@ -3,55 +3,113 @@ const year = new Date().getFullYear()
 ---
 
 <footer>
-  <div class="divider"></div>
-  <div class="footer">
-    <div class="gap-y-6">
+  <span class="divider"></span>
+  <div class="container">
+    <div>
       <a href={Astro.url.origin}>
         <img
-          src="/meta/tauri_logo_watermark.svg"
+          src="/meta/tauri_logo_light.svg"
           alt="Tauri logo"
-          class="h-8 opacity-80 hover:opacity-100 transition"
+          class="light-mode-only logo"
+        />
+        <img
+          src="/meta/tauri_logo_dark.svg"
+          alt="Tauri logo"
+          class="dark-mode-only logo"
         />
       </a>
 
-      <div class="-ml-3">
-        <button class="btn btn-ghost btn-circle">
+      <ul class="social">
+        <li>
           <a href="https://github.com/tauri-apps/tauri" target="_blank">
             <i class="bi bi-github"></i>
           </a>
-        </button>
-        <button class="btn btn-ghost btn-circle">
+        </li>
+        <li>
           <a href="https://discord.com/invite/tauri" target="_blank">
             <i class="bi bi-discord"></i>
           </a>
-        </button>
-        <button class="btn btn-ghost btn-circle">
+        </li>
+
+        <li>
           <a href="https://twitter.com/TauriApps" target="_blank">
             <i class="bi bi-twitter"></i>
           </a>
-        </button>
-        <button class="btn btn-ghost btn-circle">
+        </li>
+
+        <li>
           <a href="https://fosstodon.org/@TauriApps" target="_blank">
             <i class="bi bi-mastodon"></i>
           </a>
-        </button>
-      </div>
+        </li>
+      </ul>
       <p>Copyright &copy; {year} Tauri Contributors. CC-BY / MIT</p>
     </div>
 
-    <div>
-      <span class="footer-title">Sections</span>
-      <a href="/blog" class="link link-hover">Docs</a>
-      <a href="/api" class="link link-hover">References</a>
-      <a href="/about" class="link link-hover">About</a>
-    </div>
+    <ul>
+      <li><span class="footer-title">Sections</span></li>
+      <li><a href="/blog">Docs</a></li>
+      <li><a href="/api">References</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
 
-    <div>
-      <span class="footer-title">Placeholder</span>
-      <a href="/blog" class="link link-hover">Blog</a>
-      <a href="" class="link link-hover">Email</a>
-      <a href="" class="link link-hover">OpenCollective</a>
-      <a href="" class="link link-hover">Awesome Tauri</a>
-    </div>
+    <ul>
+      <li><span class="footer-title">External</span></li>
+      <li>
+        <a href="/blog">
+          <!-- TODO: Add OpenCollective icon -->
+          <!-- <i class="bi bi-github"></i> -->
+          OpenCollective
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <!-- <i class="bi bi-envelope-open-fill"></i> -->
+          Email
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <!-- <i class="bi bi-github"></i> -->
+          Awesome Tauri
+        </a>
+      </li>
+    </ul>
   </div>
 </footer>
+
+<style>
+  footer {
+  }
+
+  footer,
+  footer a {
+    color: rgb(var(--base-content) / 0.8);
+  }
+  .container {
+    padding: var(--padding-x);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .logo {
+    height: 2em;
+  }
+  .social {
+    /* TODO: Need to move out 1em to make up for the padding */
+    display: flex;
+  }
+
+  .social a {
+    padding: 1em;
+    border-radius: var(--radius);
+  }
+
+  .social a:hover {
+    background-color: rgb(var(--base-content) / 0.1);
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>

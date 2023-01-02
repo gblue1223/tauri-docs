@@ -2,66 +2,6 @@
 import Search from './Search.astro'
 ---
 
-<style>
-  nav {
-    top: 0;
-    padding: 1em var(--padding-x);
-    position: sticky;
-    height: 3rem;
-    background-color: rgb(var(--base-100-bg));
-    display: flex;
-    justify-content: space-between;
-  }
-
-  nav a {
-    color: rgb(var(--base-content) / 0.8);
-  }
-
-  nav a:hover {
-    color: rgb(var(--base-content));
-    text-decoration: none;
-  }
-
-  ul {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    display: inline;
-  }
-
-  li a {
-    padding: 1em;
-    border-radius: var(--radius);
-  }
-
-  li:hover a {
-    background-color: rgb(var(--base-content) / 0.1);
-  }
-
-  .logo {
-    padding-right: 2rem;
-  }
-
-  .logo img {
-    height: 2rem;
-  }
-
-  .divider {
-    margin: 1em;
-    border: var(--border);
-    border-radius: var(--radius);
-  }
-
-  .icon {
-    font-size: 1.2em;
-  }
-</style>
-
 <nav class="sticky top-0 navbar px-10">
   <ul class="leading">
     <div class="logo">
@@ -161,3 +101,63 @@ import Search from './Search.astro'
     <Search />
   </ul>
 </nav>
+
+<style>
+  nav {
+    top: 0;
+    padding: 1em var(--padding-x);
+    position: sticky;
+    height: 3rem;
+    background-color: rgb(var(--base-100-bg));
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav a {
+    color: rgb(var(--base-content) / 0.8);
+  }
+
+  nav a:hover {
+    color: rgb(var(--base-content));
+    text-decoration: none;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+  }
+
+  li a {
+    padding: 1em;
+    border-radius: var(--radius);
+  }
+
+  li a:hover {
+    background-color: rgb(var(--base-content) / 0.1);
+  }
+
+  .logo {
+    padding-right: 2rem;
+  }
+
+  .logo img {
+    height: 2rem;
+  }
+
+  .divider {
+    margin: 1em;
+    border: var(--border);
+    border-radius: var(--radius);
+  }
+
+  .icon {
+    font-size: 1.2em;
+  }
+</style>
