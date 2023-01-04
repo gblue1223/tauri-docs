@@ -1,3 +1,4 @@
+import i18n from 'astro-i18n'
 import { defineConfig } from 'astro/config'
 import prefetch from '@astrojs/prefetch'
 import tailwind from '@astrojs/tailwind'
@@ -9,5 +10,5 @@ export default defineConfig({
   experimental: {
     contentCollections: true,
   },
-  integrations: [prefetch(), tailwind(), sitemap()],
+  integrations: [i18n(), prefetch(), tailwind(), sitemap()],
 })
