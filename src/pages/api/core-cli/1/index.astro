@@ -1,8 +1,12 @@
 ---
-import { getEntry } from 'astro:content'
-import Layout from '../../../../layouts/Layout.astro'
-const entry = await getEntry('api-core-cli-1', 'index.md')
-const { Content } = await entry.render()
+import { changeLanguage } from "i18next";
+import { getEntry } from "astro:content";
+import Layout from "../../../../layouts/Layout.astro";
+
+changeLanguage("en");
+
+const entry = await getEntry("api-core-cli-1", "index.md");
+const { Content } = await entry.render();
 ---
 
 <Layout title={entry.slug}>

@@ -1,8 +1,11 @@
 ---
-import { getCollection } from 'astro:content'
-import Layout from '../layouts/Layout.astro'
+import { changeLanguage } from "i18next";
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
 
-const collection = await getCollection('blog')
+changeLanguage("en");
+
+const collection = await getCollection("blog");
 ---
 
 <Layout title="Latest Blog Posts">

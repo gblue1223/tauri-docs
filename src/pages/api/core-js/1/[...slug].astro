@@ -1,21 +1,22 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content'
-import Layout from '../../../../layouts/Layout.astro'
+import { changeLanguage } from "i18next";
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../../../layouts/Layout.astro";
+
+changeLanguage("en");
 
 export async function getStaticPaths() {
-  const collection = await getCollection('api-core-js-1')
-  return collection.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }))
+    const collection = await getCollection("api-core-js-1");
+    return collection.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
 }
-
 interface Props {
-  entry: CollectionEntry<'api-core-js-1'>
+    entry: CollectionEntry<"api-core-js-1">;
 }
-
-const { entry } = Astro.props
-const { Content, headings } = await entry.render()
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
 ---
 
 <Layout title={entry.slug}>

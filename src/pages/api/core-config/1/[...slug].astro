@@ -1,46 +1,47 @@
 ---
-import Layout from '../../../../layouts/SidebarLayout.astro'
-import schema from './schema.json'
-import type { JSONSchema7 } from 'json-schema'
-import { marked } from 'marked'
-import Property from '../../../../components/JsonSchema/Property.astro'
+import { changeLanguage } from "i18next";
+import Layout from "../../../../layouts/SidebarLayout.astro";
+import schema from "schema.json";
+import type { JSONSchema7 } from "json-schema";
+import { marked } from "marked";
+import Property from "../../../../components/JsonSchema/Property.astro";
+
+changeLanguage("en");
 
 export async function getStaticPaths() {
-  return [
-    // Root object
-    {
-      params: { slug: undefined },
-      props: { name: 'Tauri Configuration', data: schema },
-    },
-    // Definitions
-    ...Object.entries(schema.definitions).map(([key, value]) => {
-      return {
-        params: {
-          slug: key,
+    return [
+        // Root object
+        {
+            params: { slug: undefined },
+            props: { name: "Tauri Configuration", data: schema },
         },
-        props: {
-          name: key,
-          data: value,
-        },
-      }
-    }),
-  ]
+        // Definitions
+        ...Object.entries(schema.definitions).map(([key, value]) => {
+            return {
+                params: {
+                    slug: key,
+                },
+                props: {
+                    name: key,
+                    data: value,
+                },
+            };
+        }),
+    ];
 }
-
 interface Props {
-  name: string
-  data: JSONSchema7
+    name: string;
+    data: JSONSchema7;
 }
-
-const { name, data } = Astro.props
-const paths = await getStaticPaths()
+const { name, data } = Astro.props;
+const paths = await getStaticPaths();
 const siblingPages = paths.map((path) => {
-  return {
-    depth: 1,
-    slug: `/api/core-config/1/${path.params.slug}`,
-    text: path.props.name,
-  }
-})
+    return {
+        depth: 1,
+        slug: `/api/core-config/1/${path.params.slug}`,
+        text: path.props.name,
+    };
+});
 ---
 
 <Layout title={name} leadingHeadings={siblingPages}>
