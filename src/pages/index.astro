@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Carousel from '../components/Blog/Carousel.astro'
-import { astroI18n } from 'astro-i18n'
+import { astroI18n, t } from 'astro-i18n'
 
 astroI18n.init(Astro)
 ---
@@ -11,10 +11,7 @@ astroI18n.init(Astro)
     <h1 class="text-4xl pb-4">Hello, Jonas!</h1>
     <h2 class="text-2xl pb-4">You ready for Tauri 2.0?</h2>
     <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ducimus
-      facere! Repellendus quasi enim rerum accusantium quas. Rerum minima
-      delectus ex, vitae sit neque obcaecati, exercitationem hic dolores
-      veritatis consequatur!
+      {t('Im the title of a page. I have white spaces punctuation and')}
     </p>
     <p>
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ducimus

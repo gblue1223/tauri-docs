@@ -4,22 +4,22 @@ type LangCode = DefaultLangCode | SupportedLangCode
 type RouteUri = | "/api/core-cli/1" | "/api/core-config/1/[...slug]" | "/api/core-js/1/[...slug]" | "/api/core-js/1" | "/blog/[...slug]" | "/docs/core/1/[...slug]" | "/docs/core/1" | "/docs/getting-started" | "/404" | "/about" | "/blog" | "/components" | "/" 
 type RouteParams = {"/api/core-cli/1": undefined; "/api/core-config/1/[...slug]": { "...slug": string; }; "/api/core-js/1/[...slug]": { "...slug": string; }; "/api/core-js/1": undefined; "/blog/[...slug]": { "...slug": string; }; "/docs/core/1/[...slug]": { "...slug": string; }; "/docs/core/1": undefined; "/docs/getting-started": undefined; "/404": undefined; "/about": undefined; "/blog": undefined; "/components": undefined; "/": undefined; }
 type TranslationPath = string
-type TranslationOptions = { [path: string]: undefined | Record<string, string | number | unknown> }
+type TranslationOptions = { [path: string]: undefined | Record<string, unknown> }
 
 declare module "astro-i18n" {
 	export * from "astro-i18n/"
 	
 	export function l<Uri extends RouteUri>(
 		route: Uri | string & {},
-		...args: undefined extends RouteParams[Uri]
-			? [params?: RouteParams[Uri], targetLangCode?: LangCode, routeLangCode?: LangCode]
+		...args: keyof RouteParams extends Uri
+			? [params?: Record<string, string>, targetLangCode?: LangCode, routeLangCode?: LangCode]
 			: [params: RouteParams[Uri], targetLangCode?: LangCode, routeLangCode?: LangCode]
 	): string
 	
 	export function t<Path extends TranslationPath>(
-		path: Path,
+		path: Path | string & {},
 		...args: undefined extends TranslationOptions[Path]
-			? [options?: TranslationOptions[Path], langCode?: LangCode]
+			? [options?: keyof TranslationOptions extends Path ? Record<string, unknown> : TranslationOptions[Path], langCode?: LangCode]
 			: [options: TranslationOptions[Path], langCode?: LangCode]
 	): string
 	
@@ -40,6 +40,8 @@ declare module "astro-i18n" {
 		set langCode(langCode: LangCode)
 		get formatters(): Record<string, InterpolationFormatter>
 		init(Astro: { url: URL }, formatters?: Record<string, InterpolationFormatter>): void
+		addTranslations(translations: Translations): void
+		addRouteTranslations(routeTranslations: RouteTranslations): void
 		getFormatter(name: string): InterpolationFormatter | undefined
 		setFormatter(name: string, formatter: InterpolationFormatter): void
 		deleteFormatter(name: string): void

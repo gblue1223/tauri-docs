@@ -17,6 +17,7 @@ The **API docs** are generated from our [Rust] and [TypeScript] source code.
 See [Contributing Guide].
 
 ## Trademark Usage
+
 If you are interested in using the Tauri trademarks, please read this page: https://tauri.app/about/trademark
 
 ## License
@@ -32,3 +33,7 @@ Copyright (c) 2020-2022 Tauri Programme within The Commons Conservancy
 [typescript]: https://github.com/tauri-apps/tauri/tree/dev/tooling/api
 [rust]: https://github.com/tauri-apps/tauri/tree/dev/core/tauri
 [contributing guide]: ./.github/CONTRIBUTING.md
+
+1. Generate the keys `yarn astro-i18n extract:keys`
+2. Copy over the English file
+3. Run it
