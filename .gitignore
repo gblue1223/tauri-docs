@@ -22,3 +22,4 @@ pnpm-debug.log*
 
 # Non-English Locales
 src/pages/fr/
+src/pages/zh-cn/
